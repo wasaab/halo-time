@@ -1,23 +1,33 @@
-# Hello World example
+# Create React App
 
-This example shows the most basic idea behind Next. We have 2 pages: `pages/index.js` and `pages/about.js`. The former responds to `/` requests and the latter to `/about`. Using `next/link` you can add hyperlinks between them with universal routing capabilities. The `day` directory shows that you can have subdirectories.
+**Todo: Update Readme**
 
-## Deploy your own
+This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/hello-world)
+## Deploy Your Own
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/hello-world&project-name=hello-world&repository-name=hello-world)
+Deploy your own Create React App project with Vercel.
 
-## How to use
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+_Live Example: https://create-react-template.vercel.app/_
 
-```bash
-npx create-next-app --example hello-world hello-world-app
-# or
-yarn create next-app --example hello-world hello-world-app
-# or
-pnpm create next-app --example hello-world hello-world-app
-```
+## Available Scripts
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes. You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.
+
+It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
