@@ -14,7 +14,7 @@
     "next": "^12.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-progress-timer": "git://github.com/wasaab/react-progress-timer.git",
+    "react-progress-timer": "ssh://git@github.com:wasaab/react-progress-timer.git",
     "react-scripts": "5.0.0",
     "react-speech-recognition": "^3.9.1",
     "tss-react": "^3.7.0",
