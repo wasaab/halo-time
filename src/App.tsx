@@ -12,7 +12,7 @@ import { Timer as TimerIcon } from '@mui/icons-material';
 import { GameSelect, SpawnTypeFilter, VoiceCommandButton } from './components';
 import { Elevation } from './styles';
 import { playlists, mapToSpawns, gameModes } from './model';
-import ProgressTimer from 'react-progress-timer';
+import ProgressTimer from 'react-progress-bar-timer';
 
 const useStyles = makeStyles()((theme) => ({
   progressRoot: {

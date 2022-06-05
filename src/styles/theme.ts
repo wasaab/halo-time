@@ -105,8 +105,14 @@ const darkTheme = createTheme({
           backgroundImage: darkTriangleGradiant
         },
         '*::-webkit-scrollbar-thumb': {
-          backgroundColor: 'rgba(127, 0, 255, 0.8)',
+          backgroundColor: '#284d72',
           borderRadius: 4
+        },
+        '*::-webkit-scrollbar': {
+          width: 12
+        },
+        '*::-webkit-scrollbar-track': {
+          backgroundColor: 'rgba(255,255,255,0.06)',
         }
       }
     }

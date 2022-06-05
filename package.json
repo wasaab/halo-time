@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "name": "halo-time",
   "description": "Halo Infinite spawn timers with voice commands",
   "author": "wasaab",
@@ -14,7 +14,7 @@
     "next": "^12.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-progress-timer": "https://github.com/wasaab/react-progress-timer",
+    "react-progress-bar-timer": "^0.2.0",
     "react-scripts": "5.0.0",
     "react-speech-recognition": "^3.9.1",
     "tss-react": "^3.7.0",
