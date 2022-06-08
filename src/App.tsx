@@ -1,5 +1,4 @@
-import 'regenerator-runtime/runtime';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -8,11 +7,16 @@ import {
   Typography
 } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
-import { Timer as TimerIcon } from '@mui/icons-material';
-import { GameSelect, SpawnTypeFilter, VoiceCommandButton } from './components';
-import { Elevation } from './styles';
-import { playlists, mapToSpawns, gameModes } from './model';
+import {
+  NotificationsActive as NotificationsActiveIcon,
+  NotificationsOff as NotificationsOffIcon,
+  Timer as TimerIcon
+} from '@mui/icons-material';
 import ProgressTimer from 'react-progress-bar-timer';
+import { GameSelect, SpawnTypeFilter, ToggleTipButton, VoiceCommandButton } from './components';
+import { Elevation } from './styles';
+import { playlists, mapToSpawns, gameModes, notificationTip } from './model';
+import speak from './util';
 
 const useStyles = makeStyles()((theme) => ({
   progressRoot: {
@@ -49,6 +53,7 @@ const App = () => {
   const [spawnTypes, setSpawnTypes] = useState(['vehicles', 'weapons']);
   const [started, setStarted] = useState(null);
   const [cmd, setCmd] = useState(null);
+  const [notify, setNotify] = useState(false);
 
   const handleSpawnTypesChange = (types) => {
     setSpawnTypes(types);
@@ -57,6 +62,12 @@ const App = () => {
   const handleGameChange = ({ target: { name, value } }) => {
     setGame({ ...game, [name]: value });
   };
+
+  const handleSpawn = useCallback((name) => {
+    if (!notify) { return; }
+
+    speak(name);
+  }, [notify]);
 
   const startAllTimers = () => {
     setStarted(true);
@@ -81,6 +92,14 @@ const App = () => {
           </Button>
         </Tooltip>
 
+        <ToggleTipButton
+          active={notify}
+          disabled={!window?.speechSynthesis}
+          inactiveComponent={<NotificationsOffIcon />}
+          activeComponent={<NotificationsActiveIcon />}
+          tip={notificationTip}
+          onClick={() => setNotify(!notify)}
+        />
         <VoiceCommandButton
           map={game.map}
           spawnTypes={spawnTypes}
@@ -104,6 +123,7 @@ const App = () => {
               color="#1976d2"
               fontColor="rgba(255, 255, 255, 0.85)"
               classes={{ root: classes.progressRoot }}
+              onFinish={handleSpawn}
             />
           ))}
         </Box>
