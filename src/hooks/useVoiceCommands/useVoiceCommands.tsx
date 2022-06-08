@@ -22,6 +22,7 @@ const useVoiceCommands = ({ map, spawnTypes, onCommandChange, onStartAll }: UseV
     isFuzzyMatch: true,
     bestMatchOnly: true
   });
+
   const buildCmds = () => {
     const cmds = spawnTypes.flatMap((type) => mapToSpawns[map][type].map(buildCmd));
 
@@ -31,8 +32,10 @@ const useVoiceCommands = ({ map, spawnTypes, onCommandChange, onStartAll }: UseV
     });
 
     return cmds;
-  }
+  };
+
   const commands = useMemo(buildCmds, [map, spawnTypes]);
+
   const {
     transcript,
     interimTranscript,
