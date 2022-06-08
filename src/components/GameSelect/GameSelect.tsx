@@ -1,7 +1,7 @@
 import { Box, MenuItem, TextField } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 import { gameModes, mapToSpawns, playlists } from '../../model';
-import { Elevation } from '../../styles/theme';
+import { Elevation } from '../../styles';
 import type GameSelectProps from './GameSelect.types';
 
 const useStyles = makeStyles()((theme) => ({

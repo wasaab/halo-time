@@ -1,14 +1,10 @@
-import { Badge, Button, Tooltip } from '@mui/material';
+import { Badge, Tooltip } from '@mui/material';
 import { Mic as MicIcon, MicOff as MicOffIcon } from '@mui/icons-material';
 import { makeStyles } from 'tss-react/mui';
-import { Elevation } from '../../styles/theme';
-import { useVoiceCommands, type UseVoiceCommandsProps } from '../../hooks/useVoiceCommands';
-
-export enum Tip {
-  EnableVoice = 'Enable "start ____" voice commands',
-  DisableVoice = 'Disable voice commands',
-  VoiceUnsupported = 'Voice commands are not supported by your browser'
-}
+import { ToggleTipButton } from '../';
+import { Elevation } from '../../styles';
+import { useVoiceCommands, type UseVoiceCommandsProps } from '../../hooks';
+import { cmdTip } from '../../model';
 
 const useStyles = makeStyles()((theme) => ({
   speechBubble: {
@@ -16,17 +12,9 @@ const useStyles = makeStyles()((theme) => ({
     boxShadow: theme.shadows[Elevation.High],
     marginTop: '16px !important'
   },
-  tooltip: {
-    boxShadow: theme.shadows[Elevation.High]
-  },
   arrow: {
     '&:before': {
       border: `2px solid ${theme.palette.primary.main}`
-    }
-  },
-  micButton: {
-    '&.Mui-disabled': {
-      pointerEvents: 'auto'
     }
   }
 }));
@@ -35,20 +23,12 @@ const VoiceCommandButton = (props: UseVoiceCommandsProps) => {
   const { classes } = useStyles();
   const { listening, speaking, transcript, voiceSupported, toggleMic } = useVoiceCommands(props);
 
-  const getVoiceTip = () => {
-    if (!voiceSupported) { return Tip.VoiceUnsupported; };
-
-    return listening ? Tip.DisableVoice : Tip.EnableVoice;
-  }
-
   return (
-    <Tooltip placement="right" title={getVoiceTip()} classes={{ tooltip: classes.tooltip }}>
-      <Button
-        onClick={toggleMic}
-        disabled={!voiceSupported}
-        component={voiceSupported ? undefined : 'div'}
-        className={classes.micButton}
-      >
+    <ToggleTipButton
+      active={listening}
+      disabled={!voiceSupported}
+      inactiveComponent={<MicOffIcon />}
+      activeComponent={(
         <Tooltip
           title={`"${transcript}"`}
           open={speaking}
@@ -60,16 +40,15 @@ const VoiceCommandButton = (props: UseVoiceCommandsProps) => {
           arrow
           disableInteractive
         >
-          {listening ? (
-            <Badge color="error" variant="dot">
-              <MicIcon />
-            </Badge>
-          ) : (
-            <MicOffIcon />
-          )}
+          <Badge color="error" variant="dot">
+            <MicIcon />
+          </Badge>
         </Tooltip>
-      </Button>
-    </Tooltip>
+      )}
+      tip={cmdTip}
+      tipPlacement="right"
+      onClick={toggleMic}
+    />
   );
 };
 

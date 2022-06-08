@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2022-06-07
+### Added
+- voice notifications upon spawn
+
+### Changed
+- react-progress-timer dep (v0.2.0 --> v0.3.0) for onFinish
+- ToggleTipButton extracted from VoiceCommandButton
+
 ## [0.2.1] - 2022-06-05
 ### Changed
 - scrollbar styling
