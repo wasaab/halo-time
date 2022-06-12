@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1] - 2022-06-12
+### Added
+- MIT license
+- readme
+
+### Changed
+- react-progress-bar-timer dep upgraded (v0.3.0 --> v0.3.4)
+
+### Removed
+- unused next dep
+
+### Fixed
+- voice tip prefix defaults to ''
+
 ## [0.3.0] - 2022-06-07
 ### Added
 - voice notifications upon spawn

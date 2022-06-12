@@ -1,8 +1,9 @@
 {
-  "version": "0.3.0",
+  "version": "0.3.1",
   "name": "halo-time",
-  "description": "Halo Infinite spawn timers with voice commands",
+  "description": "Halo Infinite spawn timers with voice commands and notifications",
   "author": "wasaab",
+  "license": "MIT",
   "private": true,
   "main": "index.tsx",
   "dependencies": {
@@ -11,10 +12,9 @@
     "@mui/icons-material": "^5.8.2",
     "@mui/material": "^5.8.2",
     "@mui/styles": "^5.8.0",
-    "next": "^12.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-progress-bar-timer": "^0.3.0",
+    "react-progress-bar-timer": "^0.3.4",
     "react-scripts": "5.0.0",
     "react-speech-recognition": "^3.9.1",
     "tss-react": "^3.7.0",

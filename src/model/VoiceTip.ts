@@ -7,7 +7,7 @@ export default interface VoiceTip {
   unsupported: string;
 }
 
-const buildTip = (feature: string, startPrefix?: string): VoiceTip => ({
+const buildTip = (feature: string, startPrefix: string = ''): VoiceTip => ({
   enable: `Enable ${startPrefix}voice ${feature}`,
   disable: `Disable voice ${feature}`,
   unsupported: `Voice ${feature} are not supported by your browser`
