@@ -120,8 +120,6 @@ const App = () => {
               label={spawn.name}
               duration={spawn.respawnSecs}
               started={cmd === spawn.name || started}
-              color="#1976d2"
-              fontColor="rgba(255, 255, 255, 0.85)"
               classes={{ root: classes.progressRoot }}
               onFinish={handleSpawn}
             />
